@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>galvin.blog</groupId>
+        <artifactId>StaticBlog</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <artifactId>BlogAPI</artifactId>
+    <name>Static Blog: API</name>
+    <packaging>jar</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.galvin.deps</groupId>
+            <artifactId>JodaTime</artifactId>
+            <version>1.0</version>
+            <type>pom</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.galvin.deps</groupId>
+            <artifactId>Lombok</artifactId>
+            <version>1.0</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.galvin.deps</groupId>
+            <artifactId>ApacheCommons</artifactId>
+            <version>1.0</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+java -Xms1200m -Xmx1300m -jar $DIR/blog.jar "$@"
