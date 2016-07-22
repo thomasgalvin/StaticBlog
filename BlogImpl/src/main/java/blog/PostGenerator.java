@@ -143,6 +143,8 @@ public class PostGenerator
         post.setAuthor( prompt( AUTHOR, post.getAuthor() ) );
         post.setLink( prompt( LINK, post.getLink() ) );
         post.setLayout( prompt( LAYOUT, post.getLayout() ) );
+        post.setBannerImage( prompt( BANNER_IMAGE, post.getBannerImage() ) );
+        post.setOgDescription( prompt( OG_DESCRIPTION, post.getOgDescription() ) );
         
         post.setDate( new Date() );
         String dateValue = toString( post.getDate() );
@@ -150,14 +152,12 @@ public class PostGenerator
         post.setDate( toDate( dateValue ) );
         
         System.out.println( "\nImages:" );
-        post.setBannerImage( prompt( BANNER_IMAGE, post.getBannerImage() ) );
         post.setThumbnailImage( prompt( THUMBNIAL_IMAGE, post.getThumbnailImage() ) );
         post.setPullQuoteImage( prompt( PULL_QUOTE_IMAGE, post.getPullQuoteImage() ) );
         
         System.out.println( "\nOpenGraph metadata:" );
         post.setOgUrl( prompt( OG_URL, post.getOgUrl() ) );
         post.setOgTitle( prompt( OG_TITLE, post.getOgTitle() ) );
-        post.setOgDescription( prompt( OG_DESCRIPTION, post.getOgDescription() ) );
         post.setOgImage( prompt( OG_IMAGE, post.getOgImage() ) );
         post.setOgSiteName( prompt( OG_SITE_NAME, post.getOgSiteName() ) );
         post.setOgAudio( prompt( OG_AUDIO, post.getOgAudio() ) );
