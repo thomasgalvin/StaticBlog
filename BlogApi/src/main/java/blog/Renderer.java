@@ -24,9 +24,11 @@ public interface Renderer
 
     File getSiteDir();
     
-    File getStaticDir();
+//    File getStaticDir();
+//    
+//    File getUploadsDir();
     
-    File getUploadsDir();
+    public List<File> getStaticContent();
 
     void loadPosts();
 

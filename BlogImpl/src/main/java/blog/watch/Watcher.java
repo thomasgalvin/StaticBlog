@@ -20,8 +20,9 @@ public class Watcher
     private String configFileName;
     private FullRenderThread fullRenderer;
     private PartialRenderThread partialRenderer;
-    private LiveDirectoryCopy staticWatcher;
-    private LiveDirectoryCopy uploadsWatcher;
+//    private LiveDirectoryCopy staticWatcher;
+//    private LiveDirectoryCopy uploadsWatcher;
+    private List<LiveDirectoryCopy> staticContentWatchers = new ArrayList();
     private FileUpdateMonitor[] fullRenderMonitors;
     private FileUpdateMonitor[] partialRenderMonitors;
     private boolean verbose;
@@ -33,8 +34,13 @@ public class Watcher
         
         Renderer renderer = new RendererImpl( root, configFileName, verbose );
         
-        staticWatcher = new LiveDirectoryCopy( renderer.getStaticDir(), renderer.getSiteDir(), sleep );
-        uploadsWatcher = new LiveDirectoryCopy( renderer.getUploadsDir(), renderer.getSiteDir(), sleep );
+//        staticWatcher = new LiveDirectoryCopy( renderer.getStaticDir(), renderer.getSiteDir(), sleep );
+//        uploadsWatcher = new LiveDirectoryCopy( renderer.getUploadsDir(), renderer.getSiteDir(), sleep );
+        
+        for( File file : renderer.getStaticContent() ){
+            staticContentWatchers.add( new LiveDirectoryCopy( file, renderer.getSiteDir(), sleep ) );
+        }
+        
         fullRenderMonitors = new FileUpdateMonitor[]{
             new FileUpdateMonitor( renderer.getDataDir() ),
             new FileUpdateMonitor( renderer.getIncludesDir() ),
@@ -50,8 +56,12 @@ public class Watcher
     
     public synchronized void start(){
         running = true;
-        staticWatcher.start();
-        uploadsWatcher.start();
+        
+        for( LiveDirectoryCopy copy : staticContentWatchers ){
+            copy.start();
+        }
+//        staticWatcher.start();
+//        uploadsWatcher.start();
         
         for( FileUpdateMonitor monitor : fullRenderMonitors ){
             monitor.updateTimestamps();
@@ -74,8 +84,13 @@ public class Watcher
     
     public synchronized void stop(){
         running = false;
-        staticWatcher.stop();
-        uploadsWatcher.stop();
+        
+        for( LiveDirectoryCopy copy : staticContentWatchers ){
+            copy.stop();
+        }
+        
+//        staticWatcher.stop();
+//        uploadsWatcher.stop();
         
         if( fullRenderer != null ){
             fullRenderer = null;
