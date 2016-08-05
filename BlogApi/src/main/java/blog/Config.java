@@ -10,15 +10,13 @@ public class Config
     private String layouts = "src/layouts";
     private String includes = "src/includes";
     private String data = "src/data";
-//    private String staticDir = "src/static";
-//    private String uploads = "src/uploads";
     private String templates = "src/templates";
     private String site = "site";
     
     private String siteMetadataFile;
     private String pandoc = "/usr/local/bin/pandoc";
     
-    private String[] staticContent = new String[]{ "src/static", "src/uploads" };
+    private String[] staticContent = new String[]{ "src/static/chrome", "src/static/uploads" };
     
     private boolean renderDrafts = false;
     private boolean renderPrivate = false;
@@ -117,22 +115,6 @@ public class Config
         return staticContent;
     }
 
-//    public String getStaticDir() {
-//        return staticDir;
-//    }
-//
-//    public void setStaticDir( String staticDir ) {
-//        this.staticDir = staticDir;
-//    }
-//
-//    public String getUploads() {
-//        return uploads;
-//    }
-//
-//    public void setUploads( String uploads ) {
-//        this.uploads = uploads;
-//    }
-    
     public void setStaticContent( String[] staticContent ) {
         this.staticContent = staticContent;
     }
@@ -282,8 +264,6 @@ public class Config
         hash = 23 * hash + Objects.hashCode( this.layouts );
         hash = 23 * hash + Objects.hashCode( this.includes );
         hash = 23 * hash + Objects.hashCode( this.data );
-//        hash = 23 * hash + Objects.hashCode( this.staticDir );
-//        hash = 23 * hash + Objects.hashCode( this.uploads );
         hash = 23 * hash + Objects.hashCode( this.staticContent );
         hash = 23 * hash + Objects.hashCode( this.templates );
         hash = 23 * hash + Objects.hashCode( this.site );
@@ -353,12 +333,6 @@ public class Config
         if( !Objects.equals( this.data, other.data ) ) {
             return false;
         }
-//        if( !Objects.equals( this.staticDir, other.staticDir ) ) {
-//            return false;
-//        }
-//        if( !Objects.equals( this.uploads, other.uploads ) ) {
-//            return false;
-//        }
         if( !Objects.equals( this.staticContent, other.staticContent ) ) {
             return false;
         }
@@ -400,7 +374,6 @@ public class Config
 
     @Override
     public String toString() {
-        //return "Config{" + "published=" + published + ", drafts=" + drafts + ", privatePosts=" + privatePosts + ", layouts=" + layouts + ", includes=" + includes + ", data=" + data + ", staticDir=" + staticDir + ", uploads=" + uploads + ", templates=" + templates + ", site=" + site + ", siteMetadataFile=" + siteMetadataFile + ", pandoc=" + pandoc + ", renderDrafts=" + renderDrafts + ", renderPrivate=" + renderPrivate + ", renderRss=" + renderRss + ", rssFeedPostCount=" + rssFeedPostCount + ", ftpHost=" + ftpHost + ", ftpPort=" + ftpPort + ", ftpUser=" + ftpUser + ", ftpPassword=" + ftpPassword + ", ftpDirectory=" + ftpDirectory + ", ftpProxyHost=" + ftpProxyHost + ", ftpProxyPort=" + ftpProxyPort + ", ftpProxyUser=" + ftpProxyUser + ", ftpProxyPassword=" + ftpProxyPassword + '}';
         return "Config{" + "published=" + published + ", drafts=" + drafts + ", privatePosts=" + privatePosts + ", layouts=" + layouts + ", includes=" + includes + ", data=" + data + ", staticContent=" + staticContent + ", templates=" + templates + ", site=" + site + ", siteMetadataFile=" + siteMetadataFile + ", pandoc=" + pandoc + ", renderDrafts=" + renderDrafts + ", renderPrivate=" + renderPrivate + ", renderRss=" + renderRss + ", rssFeedPostCount=" + rssFeedPostCount + ", ftpHost=" + ftpHost + ", ftpPort=" + ftpPort + ", ftpUser=" + ftpUser + ", ftpPassword=" + ftpPassword + ", ftpDirectory=" + ftpDirectory + ", ftpProxyHost=" + ftpProxyHost + ", ftpProxyPort=" + ftpProxyPort + ", ftpProxyUser=" + ftpProxyUser + ", ftpProxyPassword=" + ftpProxyPassword + '}';
     }
     

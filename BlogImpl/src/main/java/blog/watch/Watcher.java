@@ -20,8 +20,6 @@ public class Watcher
     private String configFileName;
     private FullRenderThread fullRenderer;
     private PartialRenderThread partialRenderer;
-//    private LiveDirectoryCopy staticWatcher;
-//    private LiveDirectoryCopy uploadsWatcher;
     private List<LiveDirectoryCopy> staticContentWatchers = new ArrayList();
     private FileUpdateMonitor[] fullRenderMonitors;
     private FileUpdateMonitor[] partialRenderMonitors;
@@ -33,9 +31,6 @@ public class Watcher
         this.verbose = verbose;
         
         Renderer renderer = new RendererImpl( root, configFileName, verbose );
-        
-//        staticWatcher = new LiveDirectoryCopy( renderer.getStaticDir(), renderer.getSiteDir(), sleep );
-//        uploadsWatcher = new LiveDirectoryCopy( renderer.getUploadsDir(), renderer.getSiteDir(), sleep );
         
         for( File file : renderer.getStaticContent() ){
             staticContentWatchers.add( new LiveDirectoryCopy( file, renderer.getSiteDir(), sleep ) );
@@ -60,8 +55,6 @@ public class Watcher
         for( LiveDirectoryCopy copy : staticContentWatchers ){
             copy.start();
         }
-//        staticWatcher.start();
-//        uploadsWatcher.start();
         
         for( FileUpdateMonitor monitor : fullRenderMonitors ){
             monitor.updateTimestamps();
@@ -88,9 +81,6 @@ public class Watcher
         for( LiveDirectoryCopy copy : staticContentWatchers ){
             copy.stop();
         }
-        
-//        staticWatcher.stop();
-//        uploadsWatcher.stop();
         
         if( fullRenderer != null ){
             fullRenderer = null;

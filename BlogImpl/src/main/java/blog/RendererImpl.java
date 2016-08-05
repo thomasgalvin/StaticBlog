@@ -63,8 +63,6 @@ public class RendererImpl implements Renderer {
     private File layoutsDir;
     private File includesDir;
     private File dataDir;
-//    private File staticDir;
-//    private File uploadsDir;
     private List<File> staticContent = new ArrayList();
     private File siteDir;
 
@@ -123,8 +121,6 @@ public class RendererImpl implements Renderer {
         layoutsDir = new File( root, config.getLayouts() );
         includesDir = new File( root, config.getIncludes() );
         dataDir = new File( root, config.getData() );
-//        staticDir = new File( root, config.getStaticDir() );
-//        uploadsDir = new File( root, config.getUploads() );
         siteDir = new File( root, config.getSite() );
         
         for( String staticFile : config.getStaticContent() ){
@@ -197,8 +193,6 @@ public class RendererImpl implements Renderer {
         layoutsDir.mkdirs();
         includesDir.mkdirs();
         dataDir.mkdirs();
-//        staticDir.mkdirs();
-//        uploadsDir.mkdirs();
         siteDir.mkdirs();
         
         for( File file : staticContent ){
@@ -1013,26 +1007,6 @@ public class RendererImpl implements Renderer {
                 }
             }
         }
-        
-//        if( staticDir.exists() ) {
-//            try {
-//                logger.info( "Copying static content" );
-//                FileUtils.copyDirectoryToDirectory( staticDir, siteDir, true, filter, verbose );
-//            }
-//            catch( Throwable t ) {
-//                logger.error( "Error copying static content", t );
-//            }
-//        }
-//        
-//        if( uploadsDir.exists() ) {
-//            try {
-//                logger.info( "Copying uploads" );
-//                FileUtils.copyDirectoryToDirectory( uploadsDir, siteDir, true, filter, verbose );
-//            }
-//            catch( Throwable t ) {
-//                logger.error( "Error copying uploads", t );
-//            }
-//        }
     }
 
     /// index ///
@@ -1171,21 +1145,10 @@ public class RendererImpl implements Renderer {
         return dataDir;
     }
 
-//    @Override
-//    public File getStaticDir() {
-//        return staticDir;
-//    }
-//
-//    @Override
-//    public File getUploadsDir(){
-//        return uploadsDir;
-//    }
-
+    @Override
     public List<File> getStaticContent() {
         return staticContent;
     }
-    
-    
     
     @Override
     public File getSiteDir() {

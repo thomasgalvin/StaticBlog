@@ -83,14 +83,6 @@ public class Driver {
             RendererImpl renderer = null;
             Watcher watcher = null;
             if( cmd.hasOption( 'g' ) || cmd.hasOption( "publish" ) ){
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "***" );
-                logger.info( "will generate" );
                 renderer = new RendererImpl( root, config, verbose );
             }
             
