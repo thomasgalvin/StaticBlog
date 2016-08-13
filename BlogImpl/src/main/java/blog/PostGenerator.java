@@ -107,7 +107,7 @@ public class PostGenerator
         }
     }
     
-    public void run( Config config, String templateName, boolean asis ) throws Exception{
+    public void run( Config config, String templateName, boolean asis, boolean simple ) throws Exception{
         Post post = null;
         
         if( !StringUtils.isBlank( templateName ) ){
@@ -125,18 +125,18 @@ public class PostGenerator
         }
         
         if( !asis ){
-            getValues( post );
+            getValues( post, simple );
         }
         
         String visibility = prompt( VISIBILITY_PROMPT, PUBLISHED );
-        boolean generate = confirm( post, visibility );
+        boolean generate = confirm( post, visibility, simple );
         
         if( generate ){
             generate( post, visibility, config );
         }
     }
     
-    private void getValues( Post post ){
+    private void getValues( Post post, boolean simple ){
         System.out.println( "General metadata:" );
         post.setTitle( prompt( TITLE, post.getTitle() ) );
         post.setSubtitle( prompt( SUBTITLE, post.getSubtitle() ) );
@@ -151,35 +151,37 @@ public class PostGenerator
         dateValue = prompt( DATE, dateValue );
         post.setDate( toDate( dateValue ) );
         
-        System.out.println( "\nImages:" );
-        post.setThumbnailImage( prompt( THUMBNIAL_IMAGE, post.getThumbnailImage() ) );
-        post.setPullQuoteImage( prompt( PULL_QUOTE_IMAGE, post.getPullQuoteImage() ) );
-        
-        System.out.println( "\nOpenGraph metadata:" );
-        post.setOgUrl( prompt( OG_URL, post.getOgUrl() ) );
-        post.setOgTitle( prompt( OG_TITLE, post.getOgTitle() ) );
-        post.setOgImage( prompt( OG_IMAGE, post.getOgImage() ) );
-        post.setOgSiteName( prompt( OG_SITE_NAME, post.getOgSiteName() ) );
-        post.setOgAudio( prompt( OG_AUDIO, post.getOgAudio() ) );
-        post.setOgVideo( prompt( OG_VIDEO, post.getOgVideo() ) );
-        post.setOgType( prompt( OG_TYPE, post.getOgType() ) );
-        post.setOgLocale( prompt( OG_LOCALE, post.getOgLocale() ) );
-        post.setFbAppId( prompt( OG_FB_APP_ID, post.getFbAppId() ) );
-        post.setFbProfileId( prompt( OG_FB_PROFILE_ID, post.getFbProfileId() ) );
-        
-        System.out.println( "\nTwitter metadata:" );
-        post.setTwitterUrl( prompt( TWITTER_URL, post.getTwitterUrl() ) );
-        post.setTwitterTitle( prompt( TWITTER_TITLE, post.getTwitterTitle() ) );
-        post.setTwitterDescription( prompt( TWITTER_DESCRIPTION, post.getTwitterDescription() ) );
-        post.setTwitterImage( prompt( TWITTER_IMAGE, post.getTwitterImage() ) );
-        post.setTwitterCard( prompt( TWITTER_CARD, post.getTwitterCard() ) );
-        post.setTwitterSite( prompt( TWITTER_SITE, post.getTwitterSite() ) );
-        post.setTwitterCreator( prompt( TWITTER_CREATOR, post.getTwitterCreator() ) );
-        
-        System.out.println( "\nGoogle/G+ metadata:" );
-        post.setGoogleName( prompt( GOOGLE_NAME, post.getGoogleName() ) );
-        post.setGoogleDescription( prompt( GOOGLE_DESCRIPTION, post.getGoogleDescription() ) );
-        post.setGoogleImage( prompt( GOOGLE_IMAGE, post.getGoogleImage() ) );
+        if( !simple ){
+            System.out.println( "\nImages:" );
+            post.setThumbnailImage( prompt( THUMBNIAL_IMAGE, post.getThumbnailImage() ) );
+            post.setPullQuoteImage( prompt( PULL_QUOTE_IMAGE, post.getPullQuoteImage() ) );
+
+            System.out.println( "\nOpenGraph metadata:" );
+            post.setOgUrl( prompt( OG_URL, post.getOgUrl() ) );
+            post.setOgTitle( prompt( OG_TITLE, post.getOgTitle() ) );
+            post.setOgImage( prompt( OG_IMAGE, post.getOgImage() ) );
+            post.setOgSiteName( prompt( OG_SITE_NAME, post.getOgSiteName() ) );
+            post.setOgAudio( prompt( OG_AUDIO, post.getOgAudio() ) );
+            post.setOgVideo( prompt( OG_VIDEO, post.getOgVideo() ) );
+            post.setOgType( prompt( OG_TYPE, post.getOgType() ) );
+            post.setOgLocale( prompt( OG_LOCALE, post.getOgLocale() ) );
+            post.setFbAppId( prompt( OG_FB_APP_ID, post.getFbAppId() ) );
+            post.setFbProfileId( prompt( OG_FB_PROFILE_ID, post.getFbProfileId() ) );
+
+            System.out.println( "\nTwitter metadata:" );
+            post.setTwitterUrl( prompt( TWITTER_URL, post.getTwitterUrl() ) );
+            post.setTwitterTitle( prompt( TWITTER_TITLE, post.getTwitterTitle() ) );
+            post.setTwitterDescription( prompt( TWITTER_DESCRIPTION, post.getTwitterDescription() ) );
+            post.setTwitterImage( prompt( TWITTER_IMAGE, post.getTwitterImage() ) );
+            post.setTwitterCard( prompt( TWITTER_CARD, post.getTwitterCard() ) );
+            post.setTwitterSite( prompt( TWITTER_SITE, post.getTwitterSite() ) );
+            post.setTwitterCreator( prompt( TWITTER_CREATOR, post.getTwitterCreator() ) );
+
+            System.out.println( "\nGoogle/G+ metadata:" );
+            post.setGoogleName( prompt( GOOGLE_NAME, post.getGoogleName() ) );
+            post.setGoogleDescription( prompt( GOOGLE_DESCRIPTION, post.getGoogleDescription() ) );
+            post.setGoogleImage( prompt( GOOGLE_IMAGE, post.getGoogleImage() ) );
+        }
     }
 
     private String toString( Date date ){
@@ -213,7 +215,7 @@ public class PostGenerator
         }
     }
     
-    private boolean confirm( Post post, String visibility ){
+    private boolean confirm( Post post, String visibility, boolean simple ){
         System.out.println( "Post:" );
         confirm( TITLE, post.getTitle() );
         confirm( SUBTITLE, post.getSubtitle() );
@@ -232,37 +234,39 @@ public class PostGenerator
             confirm( VISIBILITY, "Published" );
         }
         
-        System.out.println( "\nImages:" );
-        confirm( BANNER_IMAGE, post.getBannerImage() );
-        confirm( THUMBNIAL_IMAGE, post.getThumbnailImage() );
-        confirm( PULL_QUOTE_IMAGE, post.getPullQuoteImage() );
-        
-        System.out.println( "\nOpenGraph metadata:" );
-        confirm( OG_URL, post.getOgUrl() );
-        confirm( OG_TITLE, post.getOgTitle() );
-        confirm( OG_DESCRIPTION, post.getOgDescription() );
-        confirm( OG_IMAGE, post.getOgImage() );
-        confirm( OG_SITE_NAME, post.getOgSiteName() );
-        confirm( OG_AUDIO, post.getOgAudio() );
-        confirm( OG_VIDEO, post.getOgVideo() );
-        confirm( OG_TYPE, post.getOgType() );
-        confirm( OG_LOCALE, post.getOgLocale() );
-        confirm( OG_FB_APP_ID, post.getFbAppId() );
-        confirm( OG_FB_PROFILE_ID, post.getFbProfileId() );
-        
-        System.out.println( "\nTwitter metadata:" );
-        confirm( TWITTER_URL, post.getTwitterUrl() );
-        confirm( TWITTER_TITLE, post.getTwitterTitle() );
-        confirm( TWITTER_DESCRIPTION, post.getTwitterDescription() );
-        confirm( TWITTER_IMAGE, post.getTwitterImage() );
-        confirm( TWITTER_CARD, post.getTwitterCard() );
-        confirm( TWITTER_SITE, post.getTwitterSite() );
-        confirm( TWITTER_CREATOR, post.getTwitterCreator() );
-        
-        System.out.println( "\nGoogle/G+ metadata:" );
-        confirm( GOOGLE_NAME, post.getGoogleName() );
-        confirm( GOOGLE_DESCRIPTION, post.getGoogleDescription() );
-        confirm( GOOGLE_IMAGE, post.getGoogleImage() );
+        if( !simple ){
+            System.out.println( "\nImages:" );
+            confirm( BANNER_IMAGE, post.getBannerImage() );
+            confirm( THUMBNIAL_IMAGE, post.getThumbnailImage() );
+            confirm( PULL_QUOTE_IMAGE, post.getPullQuoteImage() );
+
+            System.out.println( "\nOpenGraph metadata:" );
+            confirm( OG_URL, post.getOgUrl() );
+            confirm( OG_TITLE, post.getOgTitle() );
+            confirm( OG_DESCRIPTION, post.getOgDescription() );
+            confirm( OG_IMAGE, post.getOgImage() );
+            confirm( OG_SITE_NAME, post.getOgSiteName() );
+            confirm( OG_AUDIO, post.getOgAudio() );
+            confirm( OG_VIDEO, post.getOgVideo() );
+            confirm( OG_TYPE, post.getOgType() );
+            confirm( OG_LOCALE, post.getOgLocale() );
+            confirm( OG_FB_APP_ID, post.getFbAppId() );
+            confirm( OG_FB_PROFILE_ID, post.getFbProfileId() );
+
+            System.out.println( "\nTwitter metadata:" );
+            confirm( TWITTER_URL, post.getTwitterUrl() );
+            confirm( TWITTER_TITLE, post.getTwitterTitle() );
+            confirm( TWITTER_DESCRIPTION, post.getTwitterDescription() );
+            confirm( TWITTER_IMAGE, post.getTwitterImage() );
+            confirm( TWITTER_CARD, post.getTwitterCard() );
+            confirm( TWITTER_SITE, post.getTwitterSite() );
+            confirm( TWITTER_CREATOR, post.getTwitterCreator() );
+
+            System.out.println( "\nGoogle/G+ metadata:" );
+            confirm( GOOGLE_NAME, post.getGoogleName() );
+            confirm( GOOGLE_DESCRIPTION, post.getGoogleDescription() );
+            confirm( GOOGLE_IMAGE, post.getGoogleImage() );
+        }
         
         
         String confirm = prompt( "Generate post? [Y/N]", null );
@@ -329,7 +333,24 @@ public class PostGenerator
             targetDir = config.getPublished();
         }
         
-        String fileName = prompt( FILE_NAME, "" );
+        String defaultFileName = post.getLink();
+        if( !StringUtils.isBlank( defaultFileName ) ){
+            if( defaultFileName.endsWith( "/" ) ) {
+                int length = defaultFileName.length();
+                if( length >= 2 ) {
+                    defaultFileName = defaultFileName.substring( 0, length - 2 );
+                }
+                else {
+                    defaultFileName = "";
+                }
+            }
+        
+            if( !StringUtils.isBlank( defaultFileName ) ){
+                defaultFileName +=  ".md";
+            }
+        }
+        
+        String fileName = prompt( FILE_NAME, defaultFileName );
         if( !StringUtils.isBlank( fileName ) ){
             File file = new File( targetDir );
             file.mkdirs();

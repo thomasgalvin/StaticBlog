@@ -88,6 +88,8 @@ public class Driver {
             
             if( cmd.hasOption( "n" ) ){
                 boolean empty = cmd.hasOption( "empty" );
+                boolean simple = cmd.hasOption( "simple" );
+                
                 if( empty ){
                     new PostGenerator().runEmpty( config );
                 }
@@ -98,7 +100,7 @@ public class Driver {
                     }
 
                     boolean asis = cmd.hasOption( "asis" );
-                    new PostGenerator().run( config, templateFile, asis );
+                    new PostGenerator().run( config, templateFile, asis, simple );
                 }
             }
             
@@ -300,7 +302,12 @@ public class Driver {
             .desc( "Create a new, empty post" )
             .required( false )
             .build();
-
+        
+        Option optNewPostSimple = Option.builder( "simple" )
+            .desc( "Only prompt for the most common post metadata" )
+            .required( false )
+            .build();
+        
         Options options = new Options();
         options.addOption( optHelp );
         
@@ -332,6 +339,7 @@ public class Driver {
         options.addOption( optNewPostTemplate );
         options.addOption( optNewPostAsIs );
         options.addOption( optNewPostEmpty );
+        options.addOption( optNewPostSimple );
         
         return options;
     }
