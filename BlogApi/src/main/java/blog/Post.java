@@ -70,8 +70,14 @@ public class Post implements Cloneable {
     private String googleDescription;
     private String googleImage;
     
+    @Override
     public Post clone(){
         Post result = new Post();
+        clone( result );
+        return result;
+    }
+    
+    public void clone( Post result ){
         result.title = title;
         result.subtitle = subtitle;
         result.author = author;
@@ -123,8 +129,6 @@ public class Post implements Cloneable {
         result.googleImage = googleImage;
         
         System.arraycopy( tags, 0, result.tags, 0, tags.length );
-        
-        return result;
     }
     
     public boolean getIncludeInHistory(){

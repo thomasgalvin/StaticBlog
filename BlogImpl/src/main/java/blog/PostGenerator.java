@@ -107,7 +107,7 @@ public class PostGenerator
         }
     }
     
-    public void run( Config config, String templateName, boolean asis, boolean simple ) throws Exception{
+    public void run( Config config, SiteMetadata site, String templateName, boolean asis, boolean simple ) throws Exception{
         Post post = null;
         
         if( !StringUtils.isBlank( templateName ) ){
@@ -117,6 +117,13 @@ public class PostGenerator
             }
             else {
                 logger.error( "Cannot load template file: " + file.getAbsolutePath() );
+            }
+        }
+        
+        if( post == null && site != null ){
+            Post defaults = site.getPostDefaults();
+            if( defaults != null ){
+                post = defaults.clone();
             }
         }
         

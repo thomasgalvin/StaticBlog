@@ -82,7 +82,7 @@ public class Driver {
             
             RendererImpl renderer = null;
             Watcher watcher = null;
-            if( cmd.hasOption( 'g' ) || cmd.hasOption( "publish" ) ){
+            if( cmd.hasOption( 'g' ) || cmd.hasOption( "publish" ) || cmd.hasOption( "n" )){
                 renderer = new RendererImpl( root, config, verbose );
             }
             
@@ -100,7 +100,7 @@ public class Driver {
                     }
 
                     boolean asis = cmd.hasOption( "asis" );
-                    new PostGenerator().run( config, templateFile, asis, simple );
+                    new PostGenerator().run( config, renderer.getSite(), templateFile, asis, simple );
                 }
             }
             
@@ -303,7 +303,8 @@ public class Driver {
             .required( false )
             .build();
         
-        Option optNewPostSimple = Option.builder( "simple" )
+        Option optNewPostSimple = Option.builder( "k" )
+            .longOpt( "simple" )
             .desc( "Only prompt for the most common post metadata" )
             .required( false )
             .build();

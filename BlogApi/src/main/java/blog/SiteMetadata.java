@@ -31,6 +31,8 @@ public class SiteMetadata implements Cloneable
     private String rssAuthor;
     
     private String twitterHandle; //e.g. @MyPublisher
+    
+    private Post postDefaults;
 
     // <editor-fold  defaultstate="collapsed"  desc="generated code">
     
@@ -194,6 +196,14 @@ public class SiteMetadata implements Cloneable
         this.twitterHandle = twitterHandle;
     }
 
+    public Post getPostDefaults() {
+        return postDefaults;
+    }
+
+    public void setPostDefaults( Post postDefaults ) {
+        this.postDefaults = postDefaults;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -215,6 +225,7 @@ public class SiteMetadata implements Cloneable
         hash = 29 * hash + Objects.hashCode( this.rssCopyright );
         hash = 29 * hash + Objects.hashCode( this.rssAuthor );
         hash = 29 * hash + Objects.hashCode( this.twitterHandle );
+        hash = 29 * hash + Objects.hashCode( this.postDefaults );
         return hash;
     }
 
@@ -282,6 +293,9 @@ public class SiteMetadata implements Cloneable
             return false;
         }
         if( !Objects.equals( this.twitterHandle, other.twitterHandle ) ) {
+            return false;
+        }
+        if( !Objects.equals( this.postDefaults, other.postDefaults ) ) {
             return false;
         }
         return true;
