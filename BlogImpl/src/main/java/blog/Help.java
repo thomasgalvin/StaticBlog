@@ -10,7 +10,7 @@ public class Help {
         printHelpFile( "help_master.txt" );
     }
     
-    public static void newSite(){
+    public static void newsite(){
         printHelpFile( "help_skeleton.txt" );
     }
     
@@ -50,6 +50,20 @@ public class Help {
         printHelpFile( "help_publish.txt" );
     }
     
+    public static void all(){
+        master();
+        newsite();
+        layout();
+        config();
+        metadata();
+        authors();
+        themes();
+        posts();
+        newpost();
+        render();
+        publish();
+    }
+    
     private static void printHelpFile( String name ){
         try {
             URL url = Help.class.getClassLoader().getResource( "blog/help/" + name );
@@ -57,6 +71,7 @@ public class Help {
                 String contents = IOUtils.toString( url, Charset.defaultCharset() );
                 if( !isBlank( contents ) ){
                     System.out.println(contents);
+                    System.out.println("\n\n");
                 }
             }
         }

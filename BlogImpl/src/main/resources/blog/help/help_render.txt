@@ -1,5 +1,6 @@
-Rendering the Website
-=====================
+
+Static Blog: Rendering the Website
+==================================
 
 Rendering refers to the process by which your source files, templates, and 
 site metadata are transformed into a complete, standalone, static website.

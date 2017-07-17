@@ -1,5 +1,6 @@
-Site Layout
-===========
+
+Static Blog: Site Layout
+========================
 
 The following is the default layout used by the generator:
 

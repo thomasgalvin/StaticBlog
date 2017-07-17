@@ -1,5 +1,6 @@
-Site Configuration
-==================
+
+Static Blog: Site Configuration
+===============================
 
 The file .../data/site.yml contains metadata about your website. The renderer 
 uses this information when populating the templates found in the layouts/ 

@@ -1,5 +1,6 @@
-Layouts / Themes
-================
+
+Static Blog: Layouts / Themes
+=============================
 
 You can define arbitrary layouts in the `src/layouts/` folder. We use Freemarker
 (http://freemarker.org/) as our templating engine, and you can read all about 
@@ -42,3 +43,23 @@ navigation    <empty>          Navigation information, if any, including:
                                  - currentPage (current page)
                                  - pageCount   (total number of pages)
 canonicalUrl  <empty>          The fully-qualified URL of the current page
+
+
+
+Themes
+------
+
+You can implement a new theme by recreating/editing any layouts used by your 
+blog and storing them in a separate folder. For example, you could have:
+
+* `.../MyBlog/`
+    *         `layouts/`
+        *              `theme-one/`
+            *                     `default.ftl`
+            *                     `splash.ftl`
+        *              `theme-two/`
+            *                     `default.ftl`
+            *                     `splash.ftl`
+
+You could then switch between themes by changing the value of `layouts` in 
+`config.yml` from `layouts/theme-one` to `layouts/theme-two`.

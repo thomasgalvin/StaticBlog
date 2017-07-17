@@ -1,5 +1,6 @@
-Static Blog configuration
-=========================
+
+Static Blog: Configuration
+==========================
 
 The file .../data/config.yml contains options that control the behavior of the 
 renderer. The most important option is the location of the 'pandoc' executable.

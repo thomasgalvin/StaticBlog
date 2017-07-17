@@ -6,10 +6,10 @@ import java.io.File;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.lang3.StringUtils;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,20 +17,54 @@ public class Driver {
     private static final Logger logger = LoggerFactory.getLogger( Driver.class );
 
     public static void main( String[] args ) {
-        if(true){
-            Help.publish();
-            System.exit(0);
-        }
-        
-        
         try {
             Options options = getOptions();
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse( options, args );
             
             if( cmd.hasOption( 'h' ) ){
-                HelpFormatter formatter = new HelpFormatter();
-                formatter.printHelp( "blog", options );
+                String section = cmd.getOptionValue('h');
+                
+                if( isBlank(section) ){
+                    Help.master();
+                }
+                else if( "newsite".equals(section) ) {
+                    Help.newsite();
+                }
+                else if( "layout".equals(section) ) {
+                    Help.layout();
+                }
+                else if( "config".equals(section) ) {
+                    Help.config();
+                }
+                else if( "metadata".equals(section) ) {
+                    Help.metadata();
+                }
+                else if( "authors".equals(section) ) {
+                    Help.authors();
+                }
+                else if( "themes".equals(section) ) {
+                    Help.themes();
+                }
+                else if( "posts".equals(section) ) {
+                    Help.posts();
+                }
+                else if( "newpost".equals(section) ) {
+                    Help.newpost();
+                }
+                else if( "render".equals(section) ) {
+                    Help.render();
+                }
+                else if( "publish".equals(section) ) {
+                    Help.publish();
+                }
+                else if( "all".equals(section) ) {
+                    Help.all();
+                }
+                
+//                HelpFormatter formatter = new HelpFormatter();
+//                formatter.printHelp( "blog", options );
+
             }
             
             boolean verbose = cmd.hasOption( "v" );
@@ -241,8 +275,10 @@ public class Driver {
         
         Option optHelp = Option.builder( "h" )
             .longOpt( "help" )
-            .hasArg( false )
-            .desc( "Print this help message" )
+            .hasArg()
+            .optionalArg(true)
+            .argName( "help section" )
+            .desc( "Print this help message, or a subsection of the help file" )
             .required( false )
             .build();
         

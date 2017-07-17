@@ -1,5 +1,6 @@
-Publishing the Website via FTP
-==============================
+
+Static Blog: Publishing the Website via FTP
+===========================================
 
 This feature is experimental, and is not working correctly yet.
 

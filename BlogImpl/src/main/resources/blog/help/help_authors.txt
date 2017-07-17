@@ -1,5 +1,6 @@
-Configuring Authors
-===================
+
+Static Blog: Configuring Authors
+================================
 
 A "database" of authors can be specified in a file called src/data/authors.yml. It should look something like this:
 

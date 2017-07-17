@@ -1,5 +1,6 @@
-Static Blog Help
-================
+
+Static Blog: Help
+=================
 
 This is a static blog generator, similar to Jekyll (https://jekyllrb.com/) and
 Hugo (https://gohugo.io/). Why create another static blog generator? Because I 
@@ -7,6 +8,8 @@ was bored.
 
 This help file is broken up into several parts:
 
+* blog --help            # prints this message
+* blog --help all        # prints the entire help file
 * blog --help newsite    # how to create a new site project
 * blog --help layout     # the directory/file structure of the project
 * blog --help config     # configuring the renderer
