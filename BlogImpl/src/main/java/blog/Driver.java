@@ -17,6 +17,12 @@ public class Driver {
     private static final Logger logger = LoggerFactory.getLogger( Driver.class );
 
     public static void main( String[] args ) {
+        if(true){
+            Help.publish();
+            System.exit(0);
+        }
+        
+        
         try {
             Options options = getOptions();
             CommandLineParser parser = new DefaultParser();

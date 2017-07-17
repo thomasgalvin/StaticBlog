@@ -1,0 +1,44 @@
+Layouts / Themes
+================
+
+You can define arbitrary layouts in the `src/layouts/` folder. We use Freemarker
+(http://freemarker.org/) as our templating engine, and you can read all about 
+how to write Freemarker templates here: http://freemarker.org/docs/
+
+When you use `blog -i`, a file called `src/layouts/default.ftl` will be created 
+for you, and used to generate any page that doesn't have a different layout 
+specified. You can, however, create any kind of layout you want, just by adding 
+a file to `layouts` and setting the `layout` property of a post.
+
+If you have a file called `src/layouts/movie-reviews.ftl`, you can use it in a 
+post by setting the `layout` attribute to `movie-reviews`.
+
+The following variables are available to the template:
+
+Option name     Default Value  Purpose
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+post          <empty>          The single post being rendered, if any (eg for 
+                                 a single blog entry). See "posts" in the help
+                                 for details.
+posts         <empty>          The list of posts being rendered, if any (eg for
+                                 a page of history, or a tag link page)
+author        <empty>          The author of the post, if any. See "authors" in
+                                 the help for details.
+site          <empty>          The site metadata. See "site" in the help for
+                                 details.
+category      <empty>          The category of posts being rendered, if any:
+                                 - name
+                                 - url
+categories    <empty>          The categories of the post being rendered, if any
+                                 - name
+                                 - url
+navigation    <empty>          Navigation information, if any, including:
+                                 - first (first page of post, if any)
+                                 - last  (last page of post, if any)
+                                 - previous (prior page of post, if any)
+                                 - next (next page of post, if any)
+                                 - unpaginated (link to complete post, if any)
+                                 - permalink (permanent link to post, if any)
+                                 - currentPage (current page)
+                                 - pageCount   (total number of pages)
+canonicalUrl  <empty>          The fully-qualified URL of the current page

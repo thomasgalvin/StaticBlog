@@ -1,0 +1,75 @@
+Static Blog Help
+================
+
+This is a static blog generator, similar to Jekyll (https://jekyllrb.com/) and
+Hugo (https://gohugo.io/). Why create another static blog generator? Because I 
+was bored.
+
+This help file is broken up into several parts:
+
+* blog --help newsite    # how to create a new site project
+* blog --help layout     # the directory/file structure of the project
+* blog --help config     # configuring the renderer
+* blog --help metadata   # details about site metadata
+* blog --help authors    # configuring a database of authors
+* blog --help themes     # how to create new themes or layouts
+* blog --help posts      # details on post metadata and format
+* blog --help newpost    # the interactive post creator
+* blog --help render     # how to generate the site
+* blog --help publish    # how to publish the site via FTP
+
+Command-line Options
+--------------------
+
+The following options can be specified from the command line:
+
+General options:
+
+ -dir,--directory <dir>     Look for source files in <dir> rather than in
+                            the user's current working directory
+ -c,--config <config.yml>   Use the specified config file
+ -v,--verbose               Verbose output
+ -h,--help <section>        Print this help message, or one of the help 
+                            sub-sections
+
+Cleaning: 
+
+ -clean                     Deletes the contents of `site`
+
+ 
+Rendering:
+  
+ -g,--generate              Generate the final static web site
+ -w,--watch                 Watch the source dirs for changes and
+                            automatically rebuild
+ -d,--drafts                Include draft posts when rendering
+ -p,--private               Include private posts when rendering
+
+Web server:
+
+-s,--server                Start a web server and host the blog
+-port <arg>                Specifies the port for the web server
+
+Creating a new project:
+
+ -i,--init                  Create a sekeleton blog project
+ -f,--force                 Force the creation of a sekeleton blog
+                            project, overwriting any existing files
+
+Creating a new post:
+ 
+ -n,--new                   Create a new post
+ -template <arg>            Load template file for new post
+ -empty                     Create a new, empty post
+ -k,--simple                Only prompt for the most common post metadata
+ -asis                      Create post as-is; do not prompt for metadata
+                            when creating a new post
+
+Publishing via FTP:
+
+ -publish                   Published the web site via FTP
+ -ftpHost <arg>             Specifies the host for FTP publishing
+ -ftpPass <arg>             Specifies the password for FTP publishing
+ -ftpPort <arg>             Specifies the port for FTP publishing
+ -ftpUser <arg>             Specifies the user for FTP publishing
+

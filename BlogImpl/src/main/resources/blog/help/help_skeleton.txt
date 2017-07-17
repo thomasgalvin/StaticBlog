@@ -1,0 +1,6 @@
+Creating a skeleton project
+===========================
+
+To create a skeleton project, `cd` into an empty directory and run `blog -init` 
+or `blog -i`. If the directory already contains files, you will need to run 
+`blog -init --force`.

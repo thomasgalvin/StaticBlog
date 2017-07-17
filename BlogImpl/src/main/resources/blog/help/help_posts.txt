@@ -1,0 +1,83 @@
+Writing Posts
+=============
+
+The renderer will look in three different folders for your posts: 
+`.../posts/published/`, `.../posts/draft/`, `.../posts/private/`. Published 
+posts will always be rendered. Draft and private posts will only be rendered if 
+you explicitly ask for it.
+
+Posts can be written in either Markdown or plain HTML. The renderer will look 
+for files that end in `.md`, `.html`, and `.htm`.
+
+Post Metadata
+-------------
+
+YAML-formated metadata should be included at the front of a blog post. The metadata must be fenced in with three hyphens at the front and end, like this:
+
+
+
+---
+title: Post Title
+subtitle: This is a great post
+author: thomas
+tags:
+    - Tag One
+    - Tag Two
+    - Tag Three
+date: 2016-04-07
+---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore...
+
+
+
+The following metadata can be specified:
+
+Option name     Default Value  Purpose
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+title           <empty>        The title of the blog post
+subtitle        <empty>        The subtitle of the blog post 
+author          <empty>        Refers to an id in the authors.yml file
+link            <empty>        EG. hello-world. This must be unique. Generated if not specified
+date            <empty>        This should be written YYYY-MM-DD
+layout          <empty>        Optional, this will be "default" unless specified
+tags            <empty>        A list of tags; see the example above
+pullQuote       <empty>        Used on link pages
+bannerImage     <empty>        Can be used in a custom layout to add images
+thumbnailImage  <empty>        Can be used in a custom layout to add images
+pullQuoteImage  <empty>        Can be used in a custom layout to add images
+
+
+
+Pull quotes and pagination
+--------------------------
+
+By default, the entire post will appear on the landing and/or history pages. If 
+you want to only show content "above the fold" on these pages, you can use the 
+`<!--pullquote-->` markup to indicate where the front-page content ends. You can 
+also paginate your posts, using the `<!--more-->` markup. For example:
+
+
+
+---
+title: Post Title
+subtitle: This is a great post
+author: thomas
+tags:
+    - Tag One
+    - Tag Two
+    - Tag Three
+date: 2016-04-07
+---
+This content will appear on the front page.
+<!--pullquote-->
+And this content will only appear when the reader clicks "read more".
+<!--more-->
+This will only appear when the reader clicks "next page".
+<!--more-->
+And this content will be on page 4.
+
+
+
+This will result in a post with four pages, and only the first page will show up
+on link pages.

@@ -1,0 +1,28 @@
+Configuring Authors
+===================
+
+A "database" of authors can be specified in a file called src/data/authors.yml. It should look something like this:
+
+id: sam
+displayName: Samantha
+fullName: Samantha Rhodes
+sortByName: Rhodes, Samantha
+---
+id: joe
+displayName: Joe
+fullName: Joe Smith
+sortByName: Smith, Joe
+
+Each author has the following options:
+
+Option name  Default Value  Purpose
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+id           <empty>        A unique id. This will be used in post metadata, 
+                              so keep it short and memorable. `joe` is better 
+                              than `145-098-357-232`.
+displayName  <empty>        The name that will show up in post bylines
+fullName     <empty>        The author's full name
+sortByName   <empty>        The authors name, formatted "Last, First"
+bio          <empty>        A (short) biography
+headshot     <empty>        An image to use as a headshot in templates
+thumbnail    <empty>        An image to use as a thumbnail in templates

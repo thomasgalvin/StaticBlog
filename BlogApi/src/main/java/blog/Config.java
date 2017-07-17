@@ -4,24 +4,26 @@ import java.util.Objects;
 
 public class Config
 {
+    private String pandoc = "/usr/local/bin/pandoc";
+    
+    private String data = "src/data";
+    private String siteMetadataFile;
+    
     private String published = "src/posts/published";
     private String drafts = "src/posts/drafts";
     private String privatePosts = "src/posts/private";
     private String layouts = "src/layouts";
     private String includes = "src/includes";
-    private String data = "src/data";
     private String templates = "src/templates";
-    private String site = "site";
-    
-    private String siteMetadataFile;
-    private String pandoc = "/usr/local/bin/pandoc";
     
     private String[] staticContent = new String[]{ "src/static/chrome", "src/static/uploads" };
     
+    private String site = "site";
     private boolean renderDrafts = false;
     private boolean renderPrivate = false;
     private boolean renderRss = true;
     private int rssFeedPostCount = 50;
+    private boolean latestFirst = true;
     
     private String ftpHost;
     private int ftpPort = -1;
@@ -51,7 +53,7 @@ public class Config
     public Config() {
     }
 
-    public Config( String siteMetadataFile, String ftpHost, String ftpUser, String ftpPassword, String ftpDirectory, String ftpProxyHost, int ftpProxyPort, String ftpProxyUser, String ftpProxyPassword ) {
+    public Config( String siteMetadataFile, String ftpHost, String ftpUser, String ftpPassword, String ftpDirectory, String ftpProxyHost, int ftpProxyPort, String ftpProxyUser, String ftpProxyPassword, boolean latestFirst ) {
         this.siteMetadataFile = siteMetadataFile;
         this.ftpHost = ftpHost;
         this.ftpUser = ftpUser;
@@ -61,6 +63,7 @@ public class Config
         this.ftpProxyPort = ftpProxyPort;
         this.ftpProxyUser = ftpProxyUser;
         this.ftpProxyPassword = ftpProxyPassword;
+        this.latestFirst = latestFirst;
     }
 
     public String getPublished() {
@@ -255,6 +258,14 @@ public class Config
         this.ftpProxyPassword = ftpProxyPassword;
     }
 
+    public boolean isLatestFirst() {
+        return latestFirst;
+    }
+
+    public void setLatestFirst( boolean latestFirst ) {
+        this.latestFirst = latestFirst;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -280,6 +291,7 @@ public class Config
         hash = 23 * hash + Objects.hashCode( this.ftpDirectory );
         hash = 23 * hash + Objects.hashCode( this.ftpProxyHost );
         hash = 23 * hash + this.ftpProxyPort;
+        hash = 23 * hash + Objects.hashCode( this.latestFirst );
         hash = 23 * hash + Objects.hashCode( this.ftpProxyUser );
         hash = 23 * hash + Objects.hashCode( this.ftpProxyPassword );
         return hash;
@@ -369,12 +381,16 @@ public class Config
         if( !Objects.equals( this.ftpProxyPassword, other.ftpProxyPassword ) ) {
             return false;
         }
+        if( !Objects.equals( this.latestFirst, other.latestFirst ) ) {
+            return false;
+        }
+        
         return true;
     }
 
     @Override
     public String toString() {
-        return "Config{" + "published=" + published + ", drafts=" + drafts + ", privatePosts=" + privatePosts + ", layouts=" + layouts + ", includes=" + includes + ", data=" + data + ", staticContent=" + staticContent + ", templates=" + templates + ", site=" + site + ", siteMetadataFile=" + siteMetadataFile + ", pandoc=" + pandoc + ", renderDrafts=" + renderDrafts + ", renderPrivate=" + renderPrivate + ", renderRss=" + renderRss + ", rssFeedPostCount=" + rssFeedPostCount + ", ftpHost=" + ftpHost + ", ftpPort=" + ftpPort + ", ftpUser=" + ftpUser + ", ftpPassword=" + ftpPassword + ", ftpDirectory=" + ftpDirectory + ", ftpProxyHost=" + ftpProxyHost + ", ftpProxyPort=" + ftpProxyPort + ", ftpProxyUser=" + ftpProxyUser + ", ftpProxyPassword=" + ftpProxyPassword + '}';
+        return "Config{" + "published=" + published + ", drafts=" + drafts + ", privatePosts=" + privatePosts + ", layouts=" + layouts + ", includes=" + includes + ", data=" + data + ", templates=" + templates + ", site=" + site + ", latestFirst=" + latestFirst + ", siteMetadataFile=" + siteMetadataFile + ", pandoc=" + pandoc + ", staticContent=" + staticContent + ", renderDrafts=" + renderDrafts + ", renderPrivate=" + renderPrivate + ", renderRss=" + renderRss + ", rssFeedPostCount=" + rssFeedPostCount + ", ftpHost=" + ftpHost + ", ftpPort=" + ftpPort + ", ftpUser=" + ftpUser + ", ftpPassword=" + ftpPassword + ", ftpDirectory=" + ftpDirectory + ", ftpProxyHost=" + ftpProxyHost + ", ftpProxyPort=" + ftpProxyPort + ", ftpProxyUser=" + ftpProxyUser + ", ftpProxyPassword=" + ftpProxyPassword + '}';
     }
     
     // </editor-fold>

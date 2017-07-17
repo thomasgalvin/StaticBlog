@@ -1,0 +1,20 @@
+Interactive Post Generator
+==========================
+
+This is a tool that allows you to quickly and easily create a blog post, with 
+metadata, from the command line.
+
+The following command-line options are available:
+
+Creating a new post:
+ 
+ -n,--new                   Create a new post
+ -template <arg>            Load template file for new post
+ -empty                     Create a new, empty post
+ -k,--simple                Only prompt for the most common post metadata
+ -asis                      Create post as-is; do not prompt for metadata
+                            when creating a new post
+
+When the interactive generator is started (eg blog -n -k) you will be prompted 
+for post metadata, and then asked to confirm those values before the post is 
+written to disk.

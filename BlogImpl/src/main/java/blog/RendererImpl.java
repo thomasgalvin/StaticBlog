@@ -3,6 +3,7 @@ package blog;
 import com.esotericsoftware.yamlbeans.YamlReader;
 import freemarker.template.Template;
 import blog.sort.PagedPosts;
+import blog.sort.PublicationDateComparator;
 import blog.sort.ReversePublicationDateComparator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +66,7 @@ public class RendererImpl implements Renderer {
     private File dataDir;
     private List<File> staticContent = new ArrayList();
     private File siteDir;
+    private boolean latestFirst = true;
 
     private List<Post> posts = new ArrayList();
     private List<Post> drafts = new ArrayList();
@@ -122,6 +124,7 @@ public class RendererImpl implements Renderer {
         includesDir = new File( root, config.getIncludes() );
         dataDir = new File( root, config.getData() );
         siteDir = new File( root, config.getSite() );
+        latestFirst = config.isLatestFirst();
         
         for( String staticFile : config.getStaticContent() ){
             staticContent.add( new File( staticFile ) );
@@ -276,7 +279,13 @@ public class RendererImpl implements Renderer {
             }
         }
         
-        Collections.sort( rssFeedPosts, new ReversePublicationDateComparator() );
+        if( latestFirst ){
+            Collections.sort( rssFeedPosts, new ReversePublicationDateComparator() );
+        }
+        else {
+            Collections.sort( rssFeedPosts, new PublicationDateComparator() );
+        }
+        
         if( rssFeedPosts.size() > config.getRssFeedPostCount() ){
             rssFeedPosts = rssFeedPosts.subList( 0, config.getRssFeedPostCount() );
         }
@@ -759,7 +768,15 @@ public class RendererImpl implements Renderer {
                 }
             }
 
-            Collections.sort( allPosts, new ReversePublicationDateComparator() );
+            
+            
+            if( latestFirst ){
+                Collections.sort( allPosts, new ReversePublicationDateComparator() );
+            }
+            else {
+                Collections.sort( allPosts, new PublicationDateComparator() );
+            }
+            
             PagedPosts pages = new PagedPosts( allPosts, site.getPostsPerPage() );
             Navigation navigation = new Navigation();
 
