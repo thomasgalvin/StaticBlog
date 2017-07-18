@@ -17,6 +17,8 @@ This help file is broken up into several parts:
 * blog --help authors    # configuring a database of authors
 * blog --help themes     # how to create new themes or layouts
 * blog --help posts      # details on post metadata and format
+* blog --help opengraph  # More in-depth details on Facebook, Google, and Twitter
+                           metadata
 * blog --help newpost    # the interactive post creator
 * blog --help render     # how to generate the site
 * blog --help server     # how to start a web server and view the site

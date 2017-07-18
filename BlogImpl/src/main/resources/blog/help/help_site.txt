@@ -10,35 +10,53 @@ Option name    Default Value  Purpose
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 title          <empty>        The website title
+
 subtitle       <empty>        The website subtitle
+
 about          <empty>        Used to add an "about" description to templates
+
 twitterHandle  <empty>        Site twitter handle (eg @MyPublisher)
+
 postsPerPage   10             The number of posts to show on each page of history
-postDefaults   <empty>        This can be used to specify default values for all
-                                posts, which can then be overridden on a 
-                                post-by-post basis
+
+
 webAddress     <empty>        Used to specify the "home" address of the site; eg 
-                                http://mysite.com/
+                              http://mysite.com/
+
 blogRoot       <empty>        The root directory under which all generated content
-                                will be written. For example, this can be used to 
-                                place generated content under http://mysite.com/blog
+                              will be written. For example, this can be used to 
+                              place generated content under http://mysite.com/blog
+
 landingPage    <empty>        The source file to use for the landing page. For 
-                                example, this could be used to make 
-                                welcome.md the page that is displayed when visitors 
-                                arrive at http://mysite.com/
+                              example, this could be used to make 
+                              welcome.md the page that is displayed when visitors 
+                              arrive at http://mysite.com/
+
 posts          <empty>        The subfolder under which posts will be written. If 
-                                this is blank, posts will be written to the site
-                                root (eg http://mysite.com/)
+                              this is blank, posts will be written to the site
+                              root (eg http://mysite.com/)
+
+postDefaults   <empty>        Default metadata that will be assigned to all posts,
+                              unless overridden in the post itself.
+
 authors        /authors/      The subfolder under which author link pages will
-                                be published (eg http://mysite.com/authors/author-one/)
+                              be published (eg http://mysite.com/authors/author-one/)
+
 history        /history/      The subfolder under which links to previous posts
-                                will be published (eg http://mysite.com/history/)
+                              will be published (eg http://mysite.com/history/)
+
 tags           /tags/         The subfolder under which tag-link pages will be 
-                                published (eg http://mysite.com/tags/my-tag/)
+                              published (eg http://mysite.com/tags/my-tag/)
+
 feed           /rss/          The subfolder under which the RSS feed will be 
-                                published (eg http://mysite.com/tags/rss/)
+                              published (eg http://mysite.com/tags/rss/)
+
 rssTitle       <empty>        Title for the RSS feed
+
 rssLink        <empty>        Link for the RSS feed (eg http://mysite.com/tags/rss/)
+
 rssDescription <empty>        Description of the RSS Feed
+
 rssCopyright   <empty>        Copyright statement for the RSS Feed
+
 rssAuthor      <empty>        Author of the RSS Feed

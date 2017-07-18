@@ -7,8 +7,12 @@ This feature is experimental, and is not working correctly yet.
 The following options are available from the command line:
 
  -publish                   Published the web site via FTP
+
  -ftpHost <arg>             Specifies the host for FTP publishing
+
  -ftpPass <arg>             Specifies the password for FTP publishing
+
  -ftpPort <arg>             Specifies the port for FTP publishing
+
  -ftpUser <arg>             Specifies the user for FTP publishing
 

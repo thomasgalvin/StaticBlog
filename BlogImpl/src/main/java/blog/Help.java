@@ -38,6 +38,10 @@ public class Help {
         printHelpFile( "help_posts.txt" );
     }
     
+    public static void opengraph(){
+        printHelpFile( "help_opengraph.txt" );
+    }
+    
     public static void newpost(){
         printHelpFile( "help_new_post.txt" );
     }
@@ -63,6 +67,7 @@ public class Help {
         authors();
         themes();
         posts();
+        opengraph();
         newpost();
         render();
         server();

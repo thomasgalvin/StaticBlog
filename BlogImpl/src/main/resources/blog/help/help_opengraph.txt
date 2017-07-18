@@ -1,0 +1,126 @@
+
+Static Blog: Social Media Metadata
+==================================
+
+OpenGraph is a metadata standard developed by Facebook, which allows authors and 
+publishers to control how internet resources appear when they are shared on 
+social media. 
+
+Static Blog supports the OpenGraph protocol, allowing you to set the image and
+preview text for your blog posts, as well as an array of other information.
+We also support the equivalent Google and Twitter metadata formats.
+
+For the most part, you only need to specify OpenGraph metadata, and we will 
+copy over relevant information to the Google and Twitter sections. Some 
+metadata, however, will need to be set specifically; for example, Twitter's
+description is limited to 120 characters, while Facebook and Google do not 
+impose such a restriction.
+
+This information should be specified in the YAML section at the top of your blog
+posts. 
+
+Additionally, defaults can be set in the `site.yml` file, under `postDefaults`. 
+See the `site` section of the help file for more details.
+
+Facebook Metadata
+-----------------
+
+ogUrl:         The canonical URL for your content. This should be the undecorated 
+               URL, without session variables, user identifying parameters, or 
+               counters.
+
+ogTitle:       The title of your article without any branding such as your site 
+               name. The site name is specified by the ogSiteName variable.
+
+ogDescription: A brief description of the content, usually between 2 and 4 
+               sentences. This will displayed below the title of the post on 
+               Facebook.
+
+ogImage:       The URL of the image that appears when someone shares the content 
+               to Facebook.
+
+ogSiteName:    The name of your website.
+
+ogType:        The type of your object, e.g., "video.movie". Depending on the 
+               type you specify, other properties may also be required. The
+               `article` type is the most commonly used.
+
+               Valid ogType values include:
+                 - article
+                 - website
+                 - books.author
+                 - books.book
+                 - books.genre
+                 - business.business
+                 - fitness.course
+                 - game.achievement
+                 - music.album
+                 - music.playlist
+                 - music.radio_station
+                 - music.song
+                 - place
+                 - product
+                 - product.group
+                 - product.item
+                 - profile
+                 - restaurant.menu
+                 - restaurant.menu_item
+                 - restaurant.menu_section
+                 - restaurant.restaurant
+                 - video.episode
+                 - video.movie
+                 - video.other
+                 - video.tv_show
+
+ogAudio:       The URL to an audio file to accompany this object.
+
+ogVideo:       The URL to a video file to accompany this object.
+
+ogLocale:      The locale these tags are marked up in. The format is 
+               language_TERRITORY. Default is en_US.
+
+fbAppId:       The Facebook Application ID
+
+fbProfileId:   The Facebook User Profile ID
+
+
+
+Google Metadata
+---------------
+
+googleName:        The title of the article. By default, we will reuse the value
+                   in ogTitle
+
+googleDescription: A brief description of the content. By default, we will reuse
+                   the value in ogDescription.
+
+googleImage:       The URL of an image that accompanies this article. By default,
+                   we will reuse the value if ogImage.
+
+
+
+Twitter Metadata
+----------------
+
+twitterUrl:         The canonical URL for your content.
+
+twitterDescription: A brief (120 character) description of the content. By 
+                    default, we will reuse the value in ogDescription,
+                    truncating if necessary.
+
+twitterImage:       The URL of an image that accompanies this article. By 
+                    default, we will reuse the value if ogImage.
+
+twitterCard:        Similar to ogType. The default value is `summary`.
+
+                    Valid twitterCard values are:
+                      - summary
+                      - photo
+                      - video
+                      - product
+                      - app
+                      - gallery
+
+twitterSite:        The publisher's Twitter @tag
+
+twitterCreator:     The author's Twitter @tag

@@ -37,68 +37,36 @@ The following metadata can be specified:
 Option name     Default Value  Purpose
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 title           <empty>        The title of the blog post
+
 subtitle        <empty>        The subtitle of the blog post 
+
 author          <empty>        Refers to an id in the authors.yml file
+
 link            <empty>        EG. hello-world. This must be unique. Generated if not specified
+
 date            <empty>        This should be written YYYY-MM-DD
+
 layout          <empty>        Optional, this will be "default" unless specified
+
 tags            <empty>        A list of tags; see the example above
+
 pullQuote       <empty>        Used on link pages
+
 bannerImage     <empty>        Can be used in a custom layout to add images
+
 thumbnailImage  <empty>        Can be used in a custom layout to add images
+
 pullQuoteImage  <empty>        Can be used in a custom layout to add images
+
+
 
 Social Media Metadata
 ---------------------
 
 In addition to the above metadata, you can specify a collection of information 
-used by social media sites when someone shares your blog post. The following
-information can be specified:
+used by social media sites when someone shares your blog post. For more details,
+see the `opengraph` section of the help file.
 
-Option name        Default Value  Purpose
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-
-ogUrl              <empty>        The canonical URL for your page. This should be the undecorated URL, without session variables, user identifying parameters, or counters.
-ogTitle            <empty>        The title of your article without any branding such as your site name.
-ogDescription      <empty>        A brief description of the content, usually between 2 and 4 sentences. This will displayed below the title of the post on Facebook.
-ogImage            <empty>        The URL of the image that appears when someone shares the content to Facebook.
-ogSiteName         <empty>        The name of your website
-                                  
-ogAudio            <empty>        Attach audio to the article
-ogVideo            <empty>        Attach videoto the article
-                                  
-ogType             <empty>        OGType.article
-ogLocale           <empty>        "en_US"
-                                  
-fbAppId            <empty>        The Facebook Application ID
-fbProfileId        <empty>        The Facebook User Profile ID
-                                  
-## Twitter Cards metadata;        By default, we'll copy the values from
-## the Facebook equivalents       if these are not set
-twitterUrl         <empty>        The canonical URL for your page.  
-twitterTitle       <empty>        The title of your article
-twitterDescription <empty>        Limited to 200 chars
-twitterImage       <empty>        The URL of the image that appears when someone shares the content
-
-
-## These fields doesn't overlap with Facebook's metadata, so you 
-## should set them independently
-twitterCard        <empty>        Can be one of:
-                                    - TwitterSummary.summary
-                                    - TwitterSummary.photo
-                                    - TwitterSummary.video
-                                    - TwitterSummary.product
-                                    - TwitterSummary.app
-                                    - TwitterSummary.gallery
-twitterSite        <empty>        publisher's @tag
-twitterCreator     <empty>        author's @tag
-
-
-## Google+ metadata; By default, we'll copy the values from
-## the Facebook equivalents if these are not set
-googleName         <empty>        The title of your article or content
-googleDescription  <empty>        A brief description of the content, usually between 2 and 4 sentences.
-googleImage        <empty>        The URL of the image that appears when someone shares the content
 
 
 Pull quotes and pagination

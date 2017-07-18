@@ -9,8 +9,11 @@ Generally, this is as simple as executing `blog -g`.
 
 The following command-line options are available:
 
- -g,--generate              Generate the final static web site
- -w,--watch                 Watch the source dirs for changes and
-                            automatically rebuild
- -d,--drafts                Include draft posts when rendering
- -p,--private               Include private posts when rendering
+ -g,--generate             Generate the final static web site
+ 
+-w,--watch                 Watch the source dirs for changes and
+                           automatically rebuild
+
+ -d,--drafts               Include draft posts when rendering
+
+ -p,--private              Include private posts when rendering

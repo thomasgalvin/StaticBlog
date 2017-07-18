@@ -49,6 +49,9 @@ public class Driver {
                 else if( "posts".equals(section) ) {
                     Help.posts();
                 }
+                else if( "opengraph".equals(section) ) {
+                    Help.opengraph();
+                }
                 else if( "newpost".equals(section) ) {
                     Help.newpost();
                 }

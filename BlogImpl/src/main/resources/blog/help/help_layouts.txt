@@ -19,20 +19,26 @@ The following variables are available to the template:
 Option name     Default Value  Purpose
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 post          <empty>          The single post being rendered, if any (eg for 
-                                 a single blog entry). See "posts" in the help
-                                 for details.
+                               a single blog entry). See "posts" in the help
+                               for details.
+
 posts         <empty>          The list of posts being rendered, if any (eg for
-                                 a page of history, or a tag link page)
+                               a page of history, or a tag link page)
+
 author        <empty>          The author of the post, if any. See "authors" in
-                                 the help for details.
+                               the help for details.
+
 site          <empty>          The site metadata. See "site" in the help for
-                                 details.
+                               details.
+
 category      <empty>          The category of posts being rendered, if any:
                                  - name
                                  - url
+
 categories    <empty>          The categories of the post being rendered, if any
                                  - name
                                  - url
+
 navigation    <empty>          Navigation information, if any, including:
                                  - first (first page of post, if any)
                                  - last  (last page of post, if any)
@@ -42,6 +48,7 @@ navigation    <empty>          Navigation information, if any, including:
                                  - permalink (permanent link to post, if any)
                                  - currentPage (current page)
                                  - pageCount   (total number of pages)
+
 canonicalUrl  <empty>          The fully-qualified URL of the current page
 
 

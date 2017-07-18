@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+//TODO: support full OpenGraph model (http://ogp.me)
 public class Post implements Cloneable {
     private String title;
     private String subtitle;

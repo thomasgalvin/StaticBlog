@@ -10,9 +10,13 @@ The following command-line options are available:
 Creating a new post:
  
  -n,--new                   Create a new post
+ 
  -template <arg>            Load template file for new post
+
  -empty                     Create a new, empty post
+
  -k,--simple                Only prompt for the most common post metadata
+
  -asis                      Create post as-is; do not prompt for metadata
                             when creating a new post
 
