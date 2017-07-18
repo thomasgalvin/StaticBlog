@@ -19,6 +19,7 @@ This help file is broken up into several parts:
 * blog --help posts      # details on post metadata and format
 * blog --help newpost    # the interactive post creator
 * blog --help render     # how to generate the site
+* blog --help server     # how to start a web server and view the site
 * blog --help publish    # how to publish the site via FTP
 
 Command-line Options

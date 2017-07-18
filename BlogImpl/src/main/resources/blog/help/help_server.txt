@@ -1,0 +1,16 @@
+
+Static Blog: Serving the site
+=============================
+
+This software includes a simple web server, so you can view your generated 
+content without publishing it to your web host. To start the server, run 
+`blog -server` or `blog -s`. 
+
+The port can be specified with the `-port` option. By default, the web server 
+will run on port `8080`.
+
+This can be included with the `generate` and `watch` commands like so: 
+`blog -gws`.
+
+When the server is running, you can visit <http://localhost:8080> to see how 
+your site will look in the wild.

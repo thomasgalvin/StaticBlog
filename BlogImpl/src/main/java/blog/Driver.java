@@ -58,6 +58,9 @@ public class Driver {
                 else if( "publish".equals(section) ) {
                     Help.publish();
                 }
+                else if( "server".equals(section) ) {
+                    Help.server();
+                }
                 else if( "all".equals(section) ) {
                     Help.all();
                 }

@@ -10,6 +10,7 @@ import java.util.Date;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,15 @@ import org.slf4j.LoggerFactory;
 public class PostGenerator
 {
     private static final Logger logger = LoggerFactory.getLogger( PostGenerator.class );
+    
+    private static final String DEFAULT_BODY = 
+          "This content is above the fold.\n\n"
+        + "<!--pullquote-->\n\n"
+        + "This content is below the fold.\n\n"
+        + "<!--more-->\n\n"
+        + "This content is on the next page.\n\n"
+        + "<!--more-->\n\n"
+        + "This content is on the next page.\n\n";
     
     private static final String TITLE = "Title";
     private static final String SUBTITLE = "Subtitle";
@@ -307,8 +317,8 @@ public class PostGenerator
         System.out.println( "Generating ..." );
         
         String body = post.getSource();
-        if( body == null ){
-            body = "";
+        if( isEmpty(body) ){
+            body = DEFAULT_BODY;
         }
         
         post.setSource( null );

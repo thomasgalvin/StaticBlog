@@ -46,6 +46,10 @@ public class Help {
         printHelpFile( "help_render.txt" );
     }
     
+    public static void server(){
+        printHelpFile( "help_server.txt" );
+    }
+    
     public static void publish(){
         printHelpFile( "help_publish.txt" );
     }
@@ -61,6 +65,7 @@ public class Help {
         posts();
         newpost();
         render();
+        server();
         publish();
     }
     
