@@ -48,8 +48,6 @@ public class InitImpl
     }
     
     public void init( File rootDir, String zipFile )throws IOException {
-        System.out.println("extracting zip file: " + zipFile);
-        
         logger.info( "Creating a skeleton blog project ..." );
         logger.info( "    Creating root directory: " + rootDir.getAbsolutePath() + " ..." );
         rootDir.mkdirs();
