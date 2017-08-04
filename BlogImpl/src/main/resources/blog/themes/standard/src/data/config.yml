@@ -1,0 +1,60 @@
+################################################################################
+## Set the location the renderer will search for site config files
+
+# data: "src/data/"
+
+################################################################################
+## Location of posts. Use these variables to control where
+## in the source tree the renderer searches for posts.
+
+# published: "src/posts/published/"
+# drafts: "src/posts/drafts/"
+# privatePosts: "src/posts/private/"
+
+################################################################################
+## Control what data is created when the site is rendered. By default, drafts
+## and private posts will not be rendered
+
+# renderDrafts: false
+# renderPrivate: false
+# rssFeedPostCount: 50
+
+
+################################################################################
+## Layouts and includes. Set the location the renderer will search for
+## layout templates and included files
+
+
+# layouts: "src/layouts/"
+# includes: "src/includes/"
+
+################################################################################
+## Static content. The content of both of these directories will be copied
+## without modification to the generated site
+
+# staticDir: "src/static/"
+# uploads: "src/uploads/"
+
+################################################################################
+## Site: control the location to which the renderer writes
+
+# site: "site/"
+
+################################################################################
+## External programs: set the location for external programs used by the renderer
+
+# pandoc: "/usr/local/bin/pandoc"
+
+
+################################################################################
+## FTP configuration: use these values to configure how the renderer
+## writes your files to the remote (production) server
+
+# ftpHost: 
+# ftpUser: 
+# ftpPassword: 
+# ftpDirectory: 
+
+# ftpProxyHost: 
+# ftpProxyUser: 
+# ftpProxyPassword: 

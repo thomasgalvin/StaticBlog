@@ -112,7 +112,7 @@ public class Driver {
                 
                 if( proceed ){
                     InitImpl init = new InitImpl();
-                    init.init( root );
+                    init.prompt( root );
                 }
                 else {
                     System.out.println( "Skeleton directory already exists: " + root.getAbsolutePath() );
