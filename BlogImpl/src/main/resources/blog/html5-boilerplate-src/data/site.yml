@@ -1,0 +1,45 @@
+################################################################################
+## General site information
+
+title: My Website
+subtitle: Welcome
+about: About this website
+webAddress: http://localhost
+# postsPerPage: 10
+# twitterHandle: "@MyPublishingCompany"  #this must be in quotes
+
+################################################################################
+## Configure the RSS feed generated for your site
+
+rssTitle: My Website
+rssLink: http://localhost/feed/rss.xml
+rssDescription: What's this all about, then?
+rssCopyright: Copyright (C) 2016 All Right Reserved
+rssAuthor: Author McAuthorface
+
+################################################################################
+## Use this to specify a post to use for /index.html
+## If this is set, that post will be the first thing
+## users see when visiting your web site. If it is
+## not set, the users will see the first page of your
+## posting history
+
+# landingPage: landing.md
+
+################################################################################
+## Output directories; use these to configure where
+## files are written to when the site is generated.
+##
+## blogRoot allows you to publish to /blog instead of /
+##
+## By default, posts will be written to ${blogRoot}/, history will
+## be written to ${blogRoot}/page/1/, ${blogRoot}/page/2/, etc
+
+# blogRoot: 
+# posts: 
+# authors: authors
+# history: page
+# tags: tags
+# feed: feed
+
+

@@ -90,7 +90,7 @@ tags:
 date: 2016-04-07
 ---
 This content will appear on the front page.
-<!--pullquote-->
+<!--pull-->
 And this content will only appear when the reader clicks "read more".
 <!--more-->
 This will only appear when the reader clicks "next page".

@@ -21,7 +21,7 @@ public class PostGenerator
     
     private static final String DEFAULT_BODY = 
           "This content is above the fold.\n\n"
-        + "<!--pullquote-->\n\n"
+        + "<!--pull-->\n\n"
         + "This content is below the fold.\n\n"
         + "<!--more-->\n\n"
         + "This content is on the next page.\n\n"

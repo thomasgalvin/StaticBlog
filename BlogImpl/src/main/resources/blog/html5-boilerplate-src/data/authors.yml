@@ -1,0 +1,13 @@
+id: author1
+displayName: author1
+fullName: Author One
+sortByName: One, Author
+bio: Author One is great
+twitterHandle: "@author1" #this must be in quotes
+---
+id: author2
+displayName: author2
+fullName: Author Two
+sortByName: Two, Author
+bio: Author Two is great
+twitterHandle: "@author2" #this must be in quotes

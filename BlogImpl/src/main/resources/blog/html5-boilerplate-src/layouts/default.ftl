@@ -8,44 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--social_media_metadata-->
         
-        <style type="text/css">
-            body{
-            	margin:40px auto;
-            	max-width:650px;
-            	line-height:1.6;
-            	font-size:18px;
-            	background-color:#EEEEEE;
-            	color:#444;
-            	padding:0 10px
-            }
-            
-            h1,h2,h3{
-                line-height:1.2
-            }
-            
-            h1 small{
-            	font-size: 20px;
-            }
-            
-            img,object{
-                 max-width:100%;
-                 height:auto;
-            }
-            
-            a{
-            	color:#07a;
-            	text-decoration: none;
-            }
-            
-            a:visited{
-            	color:#941352;
-            }
-            
-            a:hover{
-            	text-decoration: underline;
-            }
-        </style>
-        
         <title>
             <#if post??>
                 <#if post.title??>
@@ -63,25 +25,43 @@
             <#if site.title??>${site.title}</#if>
             <#if site.subtitle??> - ${site.subtitle}</#if>
         </title>
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+        <link rel="stylesheet" href="${site.blogRoot}/css/normalize.css">
+        <link rel="stylesheet" href="${site.blogRoot}/css/boot/bootstrap.min.css">
+        <link rel="stylesheet" href="${site.blogRoot}/css/main.css">
+        <link rel="stylesheet" href="${site.blogRoot}/css/custom_styles.css">
+        
+        <script src="${site.blogRoot}/js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="${site.blogRoot}/js/vendor/bootstrap.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <!-- Add your site or application content here -->
+        
         <!-- header and navbar -->
         <header>
-            <div class="site-title">
-               <#if site.title??>
-                   <h1 class="masthead">
-                       <a href="${site.blogRoot}/">${site.title}
-                           <#if site.subtitle??>
-                               <br>
-                               <small>${site.subtitle}</small>
+            <div class="row masthead-image">
+                <div class="col-xs-12">
+                    <div class="masthead-title">
+                        <div class="site-title">
+                           <#if site.title??>
+                               <h1 class="masthead">
+                                   <a href="${site.blogRoot}/">${site.title}
+                                       <#if site.subtitle??>
+                                           <br>
+                                           <small>${site.subtitle}</small>
+                                       </#if>
+                                   </a>
+                               </h1>
                            </#if>
-                       </a>
-                   </h1>
-               </#if>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <!-- end header and navbar -->
@@ -193,6 +173,7 @@
             <navigation>
                 <a href="${site.blogRoot}/">Home</a> &bull;
                 <a href="/${site.history}/1">All posts</a> &bull;
+                <a href="http://getbootstrap.com/">Built with Bootstrap</a>
             </navigation>
         </footer>
         <!-- end footer -->
